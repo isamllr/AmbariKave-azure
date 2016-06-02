@@ -16,10 +16,6 @@ wget "https://github.com/KaveIO/AmbariKave/archive/$VERSION.zip" -O "$WORKING_DI
 
 unzip "$WORKING_DIR/$VERSION.zip" -d "$WORKING_DIR"
 
-#To avoid conflicts with what the Kave installer installs
-yum remove -y epel-release
-yum remove -y sshpass pdsh
-
 service iptables stop
 chkconfig iptables off
 cd "$WORKING_DIR/AmbariKave-$VERSION"
