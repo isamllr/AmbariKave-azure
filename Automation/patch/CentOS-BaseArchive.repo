@@ -35,3 +35,31 @@ name=CentOS-$releasever - Contrib
 baseurl=http://vault.centos.org/6.5/contrib/x86_64
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#SCL
+[archivescl]
+name=CentOS-$releasever - scl
+baseurl=http://vault.centos.org/6.5/SCL/x86_64
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#CR
+[archivecr]
+name=CentOS-$releasever - cr
+baseurl=http://vault.centos.org/6.5/cr/x86_64
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#Fasttrack
+[archivefasttrack]
+name=CentOS-$releasever - fasstrack
+baseurl=http://vault.centos.org/6.5/fasttrack/x86_64
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#xen4
+[archivexen4]
+name=CentOS-$releasever - xen4
+baseurl=http://vault.centos.org/6.5/xen4/x86_64
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
