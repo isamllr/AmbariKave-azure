@@ -11,12 +11,14 @@
 		},
 		"KAVEAdminPassword": {
 			"type": "securestring",
+			"defaultValue": "",
 			"metadata": {
 				"description": "Password of the admin user"
 			}
 		},
 		"KAVEAdminSshkeyData": {
                         "type": "string",
+			"defaultValue": "",
                         "metadata": {
                                 "description": "SSH rsa public key as a string"
                         }
