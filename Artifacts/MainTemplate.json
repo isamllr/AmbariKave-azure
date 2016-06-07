@@ -15,6 +15,12 @@
 				"description": "Password of the admin user"
 			}
 		},
+		"KAVEAdminSshkeyData": {
+                        "type": "string",
+                        "metadata": {
+                                "description": "SSH rsa public key as a string"
+                        }
+                },
 		"saName": {
 			"type": "string",
 			"metadata": {
@@ -129,7 +135,8 @@
 		"KAVEnetworkSubnet1Prefix": "[parameters('KAVENetworkSubnet')]",
 		"KAVEImagePublisher": "OpenLogic",
 		"KAVEImageOffer": "CentOS",
-		"AmbariNodeDiskName": "[parameters('AmbariNodeName')]",
+		"sshKeyPath": "[concat('/home/',parameters('KAVEAdminUserName'),'/.ssh/authorized_keys')]",	
+                "AmbariNodeDiskName": "[parameters('AmbariNodeName')]",
 		"AmbariNicName": "[concat(parameters('AmbariNodeName'), 'NiC')]",
 		"GatewayNicName": "[concat(parameters('GatewayNodeName'), 'NiC')]",
 		"CiNicName": "[concat(parameters('CiNodeName'), 'NiC')]",
@@ -421,7 +428,15 @@
 			"osProfile": {
 				"computerName": "[parameters('GatewayNodeName')]",
 				"adminUsername": "[parameters('KAVEAdminUsername')]",
-				"adminPassword": "[parameters('KAVEAdminPassword')]"
+				"adminPassword": "[parameters('KAVEAdminPassword')]",
+				"linuxConfiguration": {
+					"ssh": {
+						"publicKeys": [{
+								"path": "[variables('sshKeyPath')]",
+								"keyData": "[parameters('sshKeyData')]"
+						}]
+					}
+				}
 			},
 			"storageProfile": {
 				"imageReference": {
@@ -473,7 +488,15 @@
 			"osProfile": {
 				"computerName": "[parameters('CiNodeName')]",
 				"adminUsername": "[parameters('KAVEAdminUsername')]",
-				"adminPassword": "[parameters('KAVEAdminPassword')]"
+				"adminPassword": "[parameters('KAVEAdminPassword')]",
+                                "linuxConfiguration": {
+                                        "ssh": {
+                                                "publicKeys": [{
+                                                                "path": "[variables('sshKeyPath')]",
+                                                                "keyData": "[parameters('sshKeyData')]"
+                                                }]
+                                        }
+                                }
 			},
 			"storageProfile": {
 				"imageReference": {
@@ -521,7 +544,15 @@
 				"osProfile": {
 					"computerName": "[concat(parameters('NnoNodeName'),'-',copyIndex())]",
 					"adminUsername": "[parameters('KAVEAdminUsername')]",
-					"adminPassword": "[parameters('KAVEAdminPassword')]"
+					"adminPassword": "[parameters('KAVEAdminPassword')]",
+	                                "linuxConfiguration": {
+        	                                "ssh": {
+                	                                "publicKeys": [{
+                                                                "path": "[variables('sshKeyPath')]",
+                                                                "keyData": "[parameters('sshKeyData')]"
+                        	                        }]
+                                	        }
+	                                }
 				},
 				"storageProfile": {
 					"imageReference": {
@@ -569,7 +600,15 @@
 				"osProfile": {
 					"computerName": "[concat(parameters('DataNodeName'),'-',copyIndex())]",
 					"adminUsername": "[parameters('KAVEAdminUsername')]",
-					"adminPassword": "[parameters('KAVEAdminPassword')]"
+					"adminPassword": "[parameters('KAVEAdminPassword')]",
+	                                "linuxConfiguration": {
+                                	        "ssh": {
+                        	                        "publicKeys": [{
+                                                                "path": "[variables('sshKeyPath')]",
+                                                                "keyData": "[parameters('sshKeyData')]"
+                	                                }]
+        	                                }
+	                                }
 				},
 				"storageProfile": {
 					"imageReference": {
@@ -626,7 +665,15 @@
 				"osProfile": {
 					"computerName": "[parameters('AmbariNodeName')]",
 					"adminUsername": "[parameters('KAVEAdminUsername')]",
-					"adminPassword": "[parameters('KAVEAdminPassword')]"
+					"adminPassword": "[parameters('KAVEAdminPassword')]",
+	                                "linuxConfiguration": {
+                                	        "ssh": {
+                        	                        "publicKeys": [{
+                                                                "path": "[variables('sshKeyPath')]",
+                                                                "keyData": "[parameters('sshKeyData')]"
+                	                                }]
+        	                                }
+	                                }
 				},
 				"storageProfile": {
 					"imageReference": {
@@ -762,5 +809,4 @@
 			"type": "string"
 		}
 	}
-
 }
