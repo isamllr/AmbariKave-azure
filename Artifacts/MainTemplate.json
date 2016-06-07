@@ -435,7 +435,7 @@
 					"ssh": {
 						"publicKeys": [{
 								"path": "[variables('sshKeyPath')]",
-								"keyData": "[parameters('sshKeyData')]"
+								"keyData": "[parameters('KAVEAdminSshkeyData')]"
 						}]
 					}
 				}
@@ -495,7 +495,7 @@
                                         "ssh": {
                                                 "publicKeys": [{
                                                                 "path": "[variables('sshKeyPath')]",
-                                                                "keyData": "[parameters('sshKeyData')]"
+                                                                "keyData": "[parameters('KAVEAdminSshkeyData')]"
                                                 }]
                                         }
                                 }
@@ -551,7 +551,7 @@
         	                                "ssh": {
                 	                                "publicKeys": [{
                                                                 "path": "[variables('sshKeyPath')]",
-                                                                "keyData": "[parameters('sshKeyData')]"
+                                                                "keyData": "[parameters('KAVEAdminSshkeyData')]"
                         	                        }]
                                 	        }
 	                                }
@@ -607,7 +607,7 @@
                                 	        "ssh": {
                         	                        "publicKeys": [{
                                                                 "path": "[variables('sshKeyPath')]",
-                                                                "keyData": "[parameters('sshKeyData')]"
+                                                                "keyData": "[parameters('KAVEAdminSshkeyData')]"
                 	                                }]
         	                                }
 	                                }
@@ -672,7 +672,7 @@
                                 	        "ssh": {
                         	                        "publicKeys": [{
                                                                 "path": "[variables('sshKeyPath')]",
-                                                                "keyData": "[parameters('sshKeyData')]"
+                                                                "keyData": "[parameters('KAVEAdminSshkeyData')]"
                 	                                }]
         	                                }
 	                                }
